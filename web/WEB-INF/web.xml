@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <!--
+    <servlet>
+        <servlet-name>HelloWorldServlet</servlet-name>
+        <servlet-class>pstudio.toma.hello</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HelloWorldServlet</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    -->
+    <security-constraint>
+        <display-name>excluded</display-name>
+        <web-resource-collection>
+            <web-resource-name>No Access</web-resource-name>
+            <url-pattern>/view/*</url-pattern>
+        </web-resource-collection>
+        <web-resource-collection>
+            <web-resource-name>No Access</web-resource-name>
+            <url-pattern>/view/*</url-pattern>
+            <http-method>DELETE</http-method>
+            <http-method>PUT</http-method>
+            <http-method>HEAD</http-method>
+            <http-method>OPTIONS</http-method>
+            <http-method>TRACE</http-method>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint/>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+    <welcome-file-list>
+        <welcome-file>index</welcome-file>
+    </welcome-file-list>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404</location>
+    </error-page>
+    <error-page>
+        <error-code>403</error-code>
+        <location>/404</location>
+    </error-page>
+</web-app>
